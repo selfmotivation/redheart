@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedHeart. Медицинская страховка</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="header__logo logo">
+            <img src="img/logo.png" alt="RedHeart" class="logo__img">
+            <span class="logo__text">Red<span>H</span>eart</span>
+        </a>
+        <div class="header__contacts contacts">
+            <p class="contacts__phone-number">8 800 071 50 15</p>
+            <button class="contacts__callback-btn btn btn_active">Заказать звонок</button>
+        </div>
+    </header>
+    <main class="main">
+        <img src="img/stethoscope.png" alt="Стетоскоп" class="main__bg">
+        <h1 class="main__title title">Подберите для себя<br>
+            медицинскую страховку от 2 990 р</h1>
+        <h2 class="main__subtitle subtitle">Пройдите тест и получите расчет страхования по выгодной цене</h2>
+        <button class="main__test-btn btn btn_active">Пройти тест</button>
+    </main>
+    <footer class="footer">
+        <section class="advantages">
+            <ul class="advantages__list">
+                <li class="advantages__list-item">
+                    <img src="img/shield.png" alt="Консультация">
+                    Консультация<br>в ведущих клиниках</li>
+                <li class="advantages__list-item">
+                    <img src="img/24.png" alt="Круглосуточная поддержка">
+                    Круглосуточная<br>поддержка застрахованных</li>
+                <li class="advantages__list-item">
+                    <img src="img/browser.png" alt="Онлайн оформление">
+                    Быстрое<br>онлайн-оформление</li>
+            </ul>
+        </section>
+        <ul class="social-links">
+            <li class="social-links__item social__links-item_fb">
+                <a href="http://www.behance.net/zarina_mur0f39" target="_blank">
+                    <img src="img/fb.png" alt="Facebook">
+                </a>
+            </li>
+            <li class="social-links__item social__links-item_vk">
+                <a href="http://vk.com/zmuratova95" target="_blank">
+                    <img src="img/vk.png" alt="VK">
+                </a>
+            </li>
+            <li class="social-links__item social__links-item_ig">
+                <a href="http://www.instagram.com/zarina.murr/" target="_blank">
+                    <img src="img/ig.png" alt="Instagrem">
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <div class="form">
+        <form action="#" class="form__field">
+            <div class="form__select form__select_step-1">
+                <div class="form__status-bar status-bar">
+                    <span class="status-bar__percents">0%</span>
+                    <ul class="status-bar__bars">
+                        <li class="status-bar__current-status">
+                            <div class="status-bar__current-status_active"></div>
+                        </li>
+                        <li class="status-bar__current-status">
+                            <div class="status-bar__current-status_active"></div>
+                        </li>
+                        <li class="status-bar__current-status">
+                            <div class="status-bar__current-status_active"></div>
+                        </li>
+                        <li class="status-bar__current-status">
+                            <div class="status-bar__current-status_active"></div>
+                        </li>
+                        <li class="status-bar__current-status">
+                            <div class="status-bar__current-status_active"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form__title title">Выберите программу страхования</div>
+                <div class="form__select-options">
+                    <div class="form__select-option-container">
+                        <label class="form__select-option_adults" for="adults">
+                        </label>
+                        <input type="radio" name="program" id="adults" value="adults">
+                        <label for="adults">Для взрослых</label>
+                    </div>
+                    <div class="form__select-option-container">
+                        <label class="form__select-option_kids" for="kids">
+                        </label>
+                        <input type="radio" name="program" id="kids" value="kids">
+                        <label for="kids">Для детей</label>
+                    </div>
+                    <div class="form__select-option-container">
+                        <label class="form__select-option_family" for="family">
+                        </label>
+                        <input type="radio" name="program" id="family" value="family">
+                        <label for="family">Семейная программа</label>
+                    </div>
+                    <div class="form__select-option-container">
+                        <label class="form__select-option_other" for="other">
+                        </label>
+                        <input type="radio" name="program" id="other" value="other">
+                        <label for="other">Другое</label>
+                    </div>
+                </div>
+                <button class="form__btn form__btn_next btn" disabled>Следующий шаг</button>
+            </div>
+            <div class="form__aside aside">
+                <div class="aside__manager manager">
+                    <img class="manager__avatar" src="img/manager.jpg" alt="Менеджер">
+                    <div class="manager__description">
+                        <p class="manager__name">Джером Сэлинджер</p>
+                        <p class="manager__subscription">Менеджер</p>
+                    </div>
+                </div>
+                <p class="aside__hint">
+                    Выберите направление, которое соответствует вашей цели страхования
+                </p>
+                <ol class="aside__result-order result-order">
+                    <!-- Состав вашей страховки:
+                    <li class="result-order__item">Для взрослых</li>
+                    <li class="result-order__item">
+                        <ul class="result-order__sublist">
+                            Спектр услуг:
+                            <li class="result-order__sublist_item">Стоматология</li>
+                            <li class="result-order__sublist_item">Госпитализация</li>
+                        </ul>
+                    </li>
+                    <li class="result-order__item">3-6 месяцев</li>
+                    <li class="result-order__item">Нет хронических заболеваний</li> -->
+                </ol>
+                <p class="aside__current-step">1 шаг</p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
