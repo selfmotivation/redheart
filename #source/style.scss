@@ -310,33 +310,30 @@ body {
         justify-content: space-between;
         align-items: center;
         padding: 4.13% 0;
+
         &-options {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
-            // margin-bottom: 65px;
             width: 90%;
-            // height: 100%;
+            transition: 0.3s;
+
+            &-list {
+                display: flex;
+            }
         }
+
         &-option {
+
             &-container {
-                // width: 25%;
                 min-width: 240px;
-                // height: 307px;
-                // height: 32vh;
-                // background: #E0F1FC;
                 background-repeat: no-repeat;
                 background-position: center bottom;
-                // background-size: contain;
                 border-radius: 16px;
                 position: relative;
-                // margin: 20px 7px;
                 display: flex;
                 flex-direction: column;
-                // justify-content: center;
-                // align-items: flex-end;
-                
 
                 * {
                     transition: 0.2s;
@@ -391,6 +388,7 @@ body {
                 bottom: -42px;
                 left: 20px;
             }
+
         }
     }
     &__btn {

@@ -288,6 +288,10 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 90%;
+  transition: 0.3s;
+}
+.form__select-options-list {
+  display: flex;
 }
 .form__select-option-container {
   min-width: 240px;

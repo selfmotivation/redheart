@@ -33,16 +33,17 @@ const TestForm = {
         this.currentStep = this.aside.querySelector('.aside__current-step');
         this.currentStepCounter = +this.currentStep.textContent.slice(0,1);
         this.currentStepContent = this.form.querySelector(`.form__select_step-${this.currentStepCounter}`);
-        this.status = this.currentStepContent.querySelector('.status-bar');
+        this.currentOptions = this.form.querySelector('.form__select-options');
+        this.status = this.form.querySelector('.status-bar');
         this.statusPercents = this.status.querySelector('.status-bar__percents');
         this.currentActiveStatus = this.status.querySelectorAll('.status-bar__current-status_active');
-        this.options = this.form.querySelectorAll('input');
+        this.optionInputs = this.form.querySelectorAll('input');
         this.nextButton = this.form.querySelector('.form__btn_next');
 
-        this.options.forEach(option => {
-            option.addEventListener('click', () => {
-                TestForm.checkNextButton(option);
-                TestForm.updateResultOrderList(option);
+        this.optionInputs.forEach(optionInput => {
+            optionInput.addEventListener('click', () => {
+                TestForm.checkNextButton(optionInput);
+                TestForm.updateResultOrderList(optionInput);
                 TestForm.updateStatusBar();
             });
         });
@@ -50,35 +51,61 @@ const TestForm = {
         // this.nextButton.addEventListener('click', changeContent());
     },
     
-    checkNextButton(option) {
-        if (option.checked === true) {
+    checkNextButton(optionInput) {
+        if (optionInput.checked === true) {
             this.nextButton.removeAttribute('disabled');
+            TestForm.nextButton.addEventListener('click', e => {
+                e.preventDefault();
+
+                TestForm.changeContent(TestForm.currentOptions);
+            })
         } else {
             this.nextButton.setAttribute('disabled');
         }
     },
 
-    updateResultOrderList(option) {
+    changeContent(prev, next) {
+
+        prev.style.opacity = '0';
+        setTimeout(() => {
+            prev.style.display = 'none';
+        }, 300);
+
+        TestForm.currentStep.innerHTML = '2 шаг';
+
+        next.style.display = 'flex';
+
+        setTimeout(() => {
+            next.style.opacity = '100%';
+        }, 300);
+        setTimeout(() => {
+            next.style.opacity = '100%';
+        }, 500);
+        this.defineElements();
+
+    },
+
+    updateResultOrderList(optionInput) {
         const newListItem = document.createElement('li');
         newListItem.classList.add('result-order__item');
-        newListItem.innerText = option.nextElementSibling.textContent;
+        newListItem.innerText = optionInput.nextElementSibling.textContent;
 
-        checkIfFirstItem(this, newListItem, option);
+        checkIfFirstItem(this, newListItem, optionInput);
         
 
-        function checkIfFirstItem(parent, child, option) {
+        function checkIfFirstItem(parent, child, optionInput) {
             if (parent.resultOrderList.childElementCount === 0) {
                 parent.resultOrderList.textContent = 'Состав вашей страховки:';
-                checkOptionType(option, parent, child);
+                checkOptionType(optionInput, parent, child);
                 parent.resultOrderList.appendChild(child);
             } else {
-                checkOptionType(option, parent, child);
+                checkOptionType(optionInput, parent, child);
                 parent.resultOrderList.appendChild(child);
             }
         }
 
-        function checkOptionType(option, parent, child) {
-            if (option.type === 'radio' && parent.resultOrderList.childElementCount === parent.currentStepCounter) {
+        function checkOptionType(optionInput, parent, child) {
+            if (optionInput.type === 'radio' && parent.resultOrderList.childElementCount === parent.currentStepCounter) {
                 const lastListItem = parent.resultOrderList.lastElementChild;
                 parent.resultOrderList.replaceChild(newListItem, lastListItem);
             }
@@ -122,20 +149,20 @@ form.addEventListener('click', e => {
 });
 
 
-const formCurrentStep = document.querySelector('.form__select_step-1');
-const options = formCurrentStep.querySelectorAll('.form__select-option');
-const statusBar = document.querySelector('.status-bar');
-const currentStatus = statusBar.querySelectorAll('.status-bar__current-status_active');
+// const formCurrentStep = document.querySelector('.form__select_step-1');
+// const options = formCurrentStep.querySelectorAll('.form__select-option');
+// const statusBar = document.querySelector('.status-bar');
+// const currentStatus = statusBar.querySelectorAll('.status-bar__current-status_active');
     
-console.log(options);
+// console.log(options);
 
-options.forEach(option => {
-        option.addEventListener('click', fillStatusBar);
+// options.forEach(option => {
+//         option.addEventListener('click', fillStatusBar);
     
-});
-function fillStatusBar(event) {
-    // console.log(this);
-    console.log(this.tagName);
-    currentStatus[0].style.width = '100%';
-}
+// });
+// function fillStatusBar(event) {
+//     // console.log(this);
+//     console.log(this.tagName);
+//     currentStatus[0].style.width = '100%';
+// }
 
